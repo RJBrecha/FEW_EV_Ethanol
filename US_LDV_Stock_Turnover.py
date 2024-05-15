@@ -62,7 +62,7 @@ EV_distribution = np.array([0.8  , 0.47 , 0.23 , 0.24 , 0.24 , 0.1  , 0.087, 0.0
 scen = 'SSP2'+'_pop'
 df1 = pd.read_excel("US_LDV_stock_and_turnover.xlsx",sheet_name = ['SSP_pop_data'])
 population_projected = np.array(df1['SSP_pop_data'].SSP2_pop)
-year = np.array(df1['SSP_pop_data'].Year)
+year = np.array(df1['SSP_pop_data'].Year)   
 df2 = pd.DataFrame({'Years':year,'pop':population_projected})
 df2 = df2.interpolate()
 population_projected = df2['pop']
@@ -211,7 +211,7 @@ irrig_water_saved = (acres_corn[0] - acres_corn)*spec_irrig
 t = range(len(years))
 for i in t:
     if irrig_water_saved[i] < spec_irrig * max_corn_irrig :
-        irrig_water_saved[i]
+        irrig_water_saved[i] = irrig_water_saved[i]
     else:
         irrig_water_saved[i] = spec_irrig * max_corn_irrig
         
